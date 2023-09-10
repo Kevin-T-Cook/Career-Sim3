@@ -1,25 +1,18 @@
 import { useGetSinglePostQuery } from "../slices/apiSlice";
+import { useParams } from "react-router-dom";
 
 function SinglePostPage() {
-    const { data, isLoading, error } = useGetSinglePostQuery(1);
+    const params = useParams();
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-      }
-    
-      if (error) {
-        return <div>Error: 404 Not Found</div>;
-      }
+    const {data:posts, isLoading} = useGetSinglePostQuery(params.id)
 
-      if (!data || !data.posts || data.posts.length === 0) {
-        return <div>No post found</div>;
-      }
-    
-      return (
-          <div>
-              <h3>{data.posts.title}</h3>
-          </div>
-      )
+    return(
+        <div className="singlePost">
+            {isLoading?<h1>Loading...</h1>:<>
+                <h1>{posts.title}</h1>
+            </>}
+        </div>
+    )
 }
 
 export default SinglePostPage;
