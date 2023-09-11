@@ -12,7 +12,7 @@ function App() {
             <Link to="/posts">HOME</Link>
           </div>
           <div>
-            <Link to="/singlepost/:_id">SINGLE POST</Link>
+            <Link to="/singlepost">SINGLE POST</Link>
           </div>
         </nav>
         <RouterComponent />

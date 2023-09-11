@@ -8,7 +8,7 @@ export const postsApi = createApi({
             query: () => "/posts",
         }),
         getSinglePost: builder.query({
-            query: (_id) => `/posts/${_id}`,
+            query: (username) => `/posts/${username}`,
         }),
     }),
 });
